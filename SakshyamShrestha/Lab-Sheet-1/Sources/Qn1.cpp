@@ -1,3 +1,8 @@
+/*
+    Write a program to find addition, subtraction, multiplication
+    and division of two numbers entered by the user 
+*/
+
 #include <stdio.h>
 
 int main() {

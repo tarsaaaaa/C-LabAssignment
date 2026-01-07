@@ -1,3 +1,9 @@
+/*
+    The length and breadth are inputs through the keyboard.
+    Write a program to calculate the area and perimeter of 
+    the rectangle
+*/
+
 #include <stdio.h>
 
 int main() {
