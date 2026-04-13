@@ -10,6 +10,7 @@ int main() {
     scanf("%d %d", &m, &n);
 
     int matrixA[m][n], matrixB[m][n], sum[m][n], difference[m][n], product[m][n];
+    bool productPossible = true;
 
     printf("Enter elements of the first matrix (A):\n");
     for (int i = 0; i < m; i++) {
@@ -25,7 +26,6 @@ int main() {
         }
     }
 
-    // Calculate sum and difference
     for (int i = 0; i < m; i++) {
         for (int j = 0; j < n; j++) {
             sum[i][j] = matrixA[i][j] + matrixB[i][j];
@@ -33,12 +33,16 @@ int main() {
         }
     }
 
-    // Calculate product
-    for (int i = 0; i < m; i++) {
-        for (int j = 0; j < n; j++) {
-            product[i][j] = 0;
-            for (int k = 0; k < n; k++) {
-                product[i][j] += matrixA[i][k] * matrixB[k][j];
+    if (n != m) {
+        printf("Matrix multiplication is not possible for the given dimensions.\n");
+        productPossible = false;
+    } else {
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                product[i][j] = 0;
+                for (int k = 0; k < n; k++) {
+                    product[i][j] += matrixA[i][k] * matrixB[k][j];
+                }
             }
         }
     }
@@ -59,12 +63,16 @@ int main() {
         printf("\n");
     }
 
-    printf("\nProduct of the matrices:\n");
-    for (int i = 0; i < m; i++) {
-        for (int j = 0; j < n; j++) {
-            printf("%d ", product[i][j]);
+    if (productPossible) {
+        printf("\nProduct of the matrices:\n");
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                printf("%d ", product[i][j]);
+            }
+            printf("\n");
         }
-        printf("\n");
+    } else {
+        printf("\nProduct cannot be displayed due to incompatible dimensions.\n");
     }
 
     return 0;
