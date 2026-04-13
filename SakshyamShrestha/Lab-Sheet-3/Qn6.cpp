@@ -42,5 +42,7 @@ int main() {
     printf("Maximum marks: %d\n", studentMarks[0]);
     printf("Minimum marks: %d\n", studentMarks[numStudents - 1]);
 
+    free(studentMarks);
+
     return 0;
 }
