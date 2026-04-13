@@ -4,14 +4,13 @@
 */
 
 #include <stdio.h>
+#include <math.h>
 
 int main() {
-    int a,b, ans=1;
+    int a, b, ans;
     printf("Enter two numbers\n");
     scanf("%d%d", &a, &b);
-    for(int i=0; i<b; i++) {
-        ans*=a;
-    }
+    ans = pow(a, b);
     printf("%d^%d=%d", a, b, ans);
     return 0;
 }
