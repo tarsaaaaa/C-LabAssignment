@@ -10,7 +10,7 @@ int main() {
 
     printf("Enter names of 10 students:\n");
     for (int i = 0; i < 10; i++) {
-        fgets(names[i], sizeof(names[i]), stdin);
+        scanf("%s", names[i]);
         names[i][strcspn(names[i], "\n")] = '\0';
     }
 

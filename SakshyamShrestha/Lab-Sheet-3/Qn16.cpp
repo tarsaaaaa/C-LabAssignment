@@ -8,7 +8,7 @@ int main() {
     char str[100];
 
     printf("Enter a string: ");
-    fgets(str, sizeof(str), stdin);
+    scanf("%s", str);
 
     printf("String in lowercase: ");
     for (int i = 0; str[i] != '\0'; i++) {
