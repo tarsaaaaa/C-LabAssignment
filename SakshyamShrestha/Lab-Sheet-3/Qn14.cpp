@@ -23,8 +23,6 @@ int main() {
 
     int lengthWithoutLib = stringLengthWithoutLib(str);
 
-    printf("Length of the string (using library function): %d\n", lengthWithLib - 1); 
-    printf("Length of the string (without using library function): %d\n", lengthWithoutLib - 1); 
-
+    printf("Length of string:\nWithout library function: %d\nWith library function: %d\n", lengthWithoutLib - 1, lengthWithLib - 1);
     return 0;
 }
