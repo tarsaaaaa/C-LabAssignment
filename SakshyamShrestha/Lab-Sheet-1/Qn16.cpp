@@ -7,9 +7,10 @@
 #include <stdio.h>
 
 int main() {
-    int a, b;
+    int a, b, r;
     printf("Enter two numbers ");
     scanf("%d%d", &a, &b);
-    a>b?printf("Sum=%d", a+b) : printf("Difference=%d", a-b);
+    r = a>b? a+b : a-b;
+    printf("Result=%d", r);
     return 0;
 }
