@@ -6,9 +6,10 @@
 #include <stdio.h>
 
 int main() {
-    int n;
+    int n, r;
     printf("Enter a number ");
     scanf("%d", &n);
-    n%2==0 ? printf("Cube of no.=%d", n*n*n) : printf("Square of no.=%d", n*n);
+    r = n%2==0 ? n*n*n: n*n;
+    printf("Result=%d", r);
     return 0;
 }
