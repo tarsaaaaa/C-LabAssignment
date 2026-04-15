@@ -2,45 +2,42 @@
     Write a program to add two matrices using pointers.
 */
 
-#include <stdio.h>
+#include <stdio.h> 
+#include <stdlib.h>
 
 int main() {
-    int m, n;
-    printf("Enter the number of rows (m) and columns (n) for the matrices: ");
+    int m, n, *ptr1, *ptr2;
+
+    printf("Enter the number of rows and columns: ");
     scanf("%d %d", &m, &n);
 
-    int matrixA[m][n], matrixB[m][n], sum[m][n];
+    ptr1 = (int*)malloc(m * n * sizeof(int));
+    ptr2 = (int*)malloc(m * n * sizeof(int));
 
-    int *ptrA = &matrixA[0][0];
-    int *ptrB = &matrixB[0][0];
-
-    printf("Enter elements of the first matrix (A):\n");
+    printf("Enter the elements of the first matrix:\n");
     for (int i = 0; i < m; i++) {
         for (int j = 0; j < n; j++) {
-            scanf("%d", &matrixA[i][j]);
+            scanf("%d", (ptr1 + i * n + j));
         }
     }
 
-    printf("Enter elements of the second matrix (B):\n");
+    printf("Enter the elements of the second matrix:\n");
     for (int i = 0; i < m; i++) {
         for (int j = 0; j < n; j++) {
-            scanf("%d", &matrixB[i][j]);
+            scanf("%d", (ptr2 + i * n + j));
         }
     }
 
-    for (int i = 0; i < m * n; i++) {
-        sum[0][i] = *ptrA + *ptrB;
-        ptrA++;
-        ptrB++;
-    }
-
-    printf("\nSum of the matrices:\n");
+    printf("Result of addition:\n");
     for (int i = 0; i < m; i++) {
         for (int j = 0; j < n; j++) {
-            printf("%d ", sum[i][j]);
+            int sum = *(ptr1 + i * n + j) + *(ptr2 + i * n + j);
+            printf("%d ", sum);
         }
         printf("\n");
     }
+    free(ptr1);
+    free(ptr2);
 
     return 0;
 }
