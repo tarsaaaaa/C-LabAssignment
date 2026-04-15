@@ -3,37 +3,30 @@
 */
 
 #include <stdio.h>
+#include <stdlib.h>
 
 int main() {
-    int m, n;
-    printf("Enter the number of rows (m): ");
-    scanf("%d", &m);
-    printf("Enter the number of columns (n): ");
-    scanf("%d", &n);
+    int m, n, *ptr;
 
-    int matrix[m][n];
-    int transpose[n][m];
+    printf("Enter the number of rows and columns: ");
+    scanf("%d %d", &m, &n);
+
+    ptr = (int*)malloc(m * n * sizeof(int));
 
     printf("Enter the elements of the matrix:\n");
     for (int i = 0; i < m; i++) {
         for (int j = 0; j < n; j++) {
-            scanf("%d", &matrix[i][j]);
-        }
-    }
-
-    for (int i = 0; i < m; i++) {
-        for (int j = 0; j < n; j++) {
-            transpose[j][i] = matrix[i][j];
+            scanf("%d", (ptr + i * n + j));
         }
     }
 
     printf("Transpose of the matrix:\n");
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < m; j++) {
-            printf("%d ", transpose[i][j]);
+    for (int j = 0; j < n; j++) {
+        for (int i = 0; i < m; i++) {
+            printf("%d ", *(ptr + i * n + j));
         }
         printf("\n");
     }
-
+    free(ptr);
     return 0;
 }
